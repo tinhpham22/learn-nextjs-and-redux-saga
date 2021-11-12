@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-import LandingPage from './landingPage.tsx/index';
+import LandingPage from './landingPage/index';
 
 const Home: NextPage = () => <LandingPage />
 
