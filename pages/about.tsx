@@ -1,10 +1,33 @@
 import React from 'react';
 
-function AboutPage() {
+interface Props {
+  personals: { id: number, name: string }[]
+}
+
+export const getStaticProps = async () => {
+  // call api
+  const data = [{
+    id: 3,
+    name: 'Nguyen van a'
+  }]
+  return {
+    props: { personals: data }
+  }
+}
+
+function AboutPage(props: Props) {
+  const { personals } = props
 
   return (
     <>
-     Hello About Page!
+      Hello About Page!
+      <p>
+        {personals.map((personal) => (
+          <div key={personal.id}>
+            {personal.name}
+          </div>
+        ))}
+      </p>
     </>
   )
 }
