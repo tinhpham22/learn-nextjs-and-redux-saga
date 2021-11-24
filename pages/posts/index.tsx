@@ -1,13 +1,28 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useRouter } from 'next/router';
 
 import { PostResModel } from '../../models/post/post-res.model';
 import { PostList } from '../../shared/constant/datas';
 import styles from '../../styles/Home.module.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { lstPostAction } from '../../redux/actions/postAction';
+import { RootReducerModel } from '../../models/reduxModels/rootReducer';
+import { PostActionModel } from '../../models/reduxModels/postAction.model';
 
 const PostListPage = () => {
   const router = useRouter()
   const postList: PostResModel[] = [...PostList];
+
+  const dispatch = useDispatch();
+  const dataReducer = useSelector<RootReducerModel, PostActionModel>(state => state.postReducer);
+  const {post, posts} = dataReducer;
+
+  console.log(post, posts);
+
+  useEffect(() => {
+    dispatch(lstPostAction())
+  }, [dispatch])
+  
 
   const goToPostDetail = (postId: PostResModel['id']) => {
     router.push({
