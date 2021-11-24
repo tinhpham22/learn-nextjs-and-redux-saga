@@ -15,7 +15,7 @@ const PostListPage = () => {
 
   const dispatch = useDispatch();
   const dataReducer = useSelector<RootReducerModel, PostActionModel>(state => state.postReducer);
-  const { post, posts } = dataReducer;
+  const {post, posts} = dataReducer;
   console.log(post, posts);
 
   useEffect(() => {
