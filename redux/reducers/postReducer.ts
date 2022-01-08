@@ -33,6 +33,11 @@ const reducer = (state=initialState, action: Action) => {
           ...state,
           posts: filter
         }
+      case 'GETDATA':
+        return {
+          ...state,
+          posts: payload?.response
+        }
       default:
           return state;
   }

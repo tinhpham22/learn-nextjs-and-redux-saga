@@ -8,5 +8,5 @@ export interface Payload {
   callback?: (data: any) => any;
   response?: any;
   data?: any;
-  pagination: any;
+  pagination?: any;
 }

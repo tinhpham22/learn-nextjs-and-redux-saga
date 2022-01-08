@@ -1,5 +1,10 @@
 import { all } from 'redux-saga/effects'
+import postSaga from './sagas/postSaga'
 
-export default function* rootSaga() {
-  yield all([])
+function* rootSaga() {
+  console.log('fff');
+  
+  yield all([postSaga(),])
 }
+
+export default  rootSaga;

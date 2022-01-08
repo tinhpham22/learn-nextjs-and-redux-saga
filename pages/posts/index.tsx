@@ -11,10 +11,10 @@ import styles from '../../styles/Home.module.css'
 
 const PostListPage = () => {
   const router = useRouter()
-  const postList: PostResModel[] = [...PostList];
-
   const dispatch = useDispatch();
   const dataReducer = useSelector<RootReducerModel, PostActionModel>(state => state.postReducer);
+  const postList: PostResModel[] = [...PostList];
+
   const {post, posts} = dataReducer;
   console.log(post, posts);
 
